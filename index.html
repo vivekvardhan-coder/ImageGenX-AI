@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ai-application.png" type="image/png">
+    <title>ImageGenX AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <i class="fas fa-paint-brush"></i>
+                <span>ImageGenX AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active"><a href="#home">Home</a></li>
+                <li class="nav-item"><a href="#gallery">Gallery</a></li>
+                <li class="nav-item"><a href="#features">Features</a></li>
+                <li class="nav-item"><a href="#reviews">Reviews</a></li>
+            </ul>
+            <div class="user-actions">
+                <button class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#" class="btn btn-outline">Sign In</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="image-generator">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="content animate__animated animate__fadeIn">
+            <h1>AI Image Generator</h1>
+            <p>Transform your ideas into stunning visuals with our AI-powered image generator</p>
+            <form class="generate-form">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <input type="text" class="prompt-input" placeholder="Describe the image you want..." required>
+                        <div class="input-icons">
+                            <i class="fas fa-lightbulb suggestion-icon" title="Get suggestions"></i>
+                            <i class="fas fa-microphone voice-icon" title="Voice input"></i>
+                        </div>
+                    </div>
+                    <div class="input-options">
+                        <div class="select-wrapper">
+                            <select class="img-quantity">
+                                <option value="1">1 Image</option>
+                                <option value="2">2 Images</option>
+                                <option value="4" selected>4 Images</option>
+                                <option value="6">6 Images</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="select-wrapper">
+                            <select class="img-style">
+                                <option value="realistic">Realistic</option>
+                                <option value="anime">Anime</option>
+                                <option value="abstract">Abstract</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="neon">Neon</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <button type="submit" class="generate-btn">
+                            <span class="btn-text">Generate</span>
+                            <div class="loading-animation">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="search-history"></div>
+                <div class="ai-suggestions">
+                    <span class="suggestion-tag">Try: </span>
+                    <button type="button" class="suggestion-item">Magical forest at sunset</button>
+                    <button type="button" class="suggestion-item">Cyberpunk city neon lights</button>
+                    <button type="button" class="suggestion-item">Abstract fluid art</button>
+                </div>
+            </form>
+        </div>
+        <div class="wave"></div>
+    </section>
+    
+    <!-- Filter Bar -->
+    <section class="filter-bar">
+        <div class="filter-container">
+            <div class="filter-group">
+                <label>Style:</label>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="realistic">Realistic</button>
+                    <button class="filter-btn" data-filter="anime">Anime</button>
+                    <button class="filter-btn" data-filter="abstract">Abstract</button>
+                    <button class="filter-btn" data-filter="fantasy">Fantasy</button>
+                    <button class="filter-btn" data-filter="neon">Neon</button>
+                </div>
+            </div>
+            <div class="view-options">
+                <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                <button class="view-btn" data-view="masonry"><i class="fas fa-columns"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <div class="toast-container"></div>
+    <div class="loading-overlay"><div class="loader"></div></div>
+
+
+    <!-- Image Gallery -->
+    <section id="gallery" class="image-gallery">
+        <div class="gallery-header">
+            <h2>Your Generated Images</h2>
+            <div class="sort-options">
+                <button class="sort-btn active" data-sort="recent">Recent</button>
+                <button class="sort-btn" data-sort="popular">Popular</button>
+                <button class="sort-btn" data-sort="oldest">Oldest</button>
+            </div>
+        </div>
+        <div class="gallery-grid"></div>
+        <div class="gallery-load-more">
+            <button class="load-more-btn">
+                <span>Load More</span>
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="section-header">
+            <h2>Advanced Features</h2>
+            <p>Powerful tools to unleash your creativity</p>
+        </div>
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <h3>Style Customization</h3>
+                <p>Choose from multiple artistic styles to match your creative vision</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-expand"></i>
+                </div>
+                <h3>HD Resolution</h3>
+                <p>Generate high-definition images perfect for commercial use</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-folder"></i>
+                </div>
+                <h3>Personal Collections</h3>
+                <p>Save and organize your creations in custom collections</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-sliders-h"></i>
+                </div>
+                <h3>Advanced Editing</h3>
+                <p>Fine-tune your generated images with powerful editing tools</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3>Bulk Export</h3>
+                <p>Download multiple images in different formats with one click</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <h3>Easy Sharing</h3>
+                <p>Share your creations directly to social media or via link</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="section-header">
+            <h2>What Our Users Say</h2>
+            <div class="reviews-rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>4.8 out of 5 based on 2,400+ reviews</span>
+            </div>
+        </div>
+
+        <div class="reviews-container">
+            <div class="review active">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                        <div class="reviewer-details">
+                            <h4>Sarah Johnson</h4>
+                            <span>Digital Artist</span>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p>"This tool has revolutionized my content creation workflow. The quality is outstanding and the new style options are incredible. I've tried many AI generators, but this one consistently produces the most usable results for my design projects."</p>
+                <div class="review-date">March 15, 2025</div>
+            </div>
+            
+            <div class="review">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T.">
+                        <div class="reviewer-details">
+                            <h4>Michael Torres</h4>
+                            <span>Marketing Director</span>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <p>"Incredibly easy to use and the results are consistently impressive. Our team now creates custom imagery for all our campaigns in minutes instead of days. The new collection feature helps us organize everything by project."</p>
+                <div class="review-date">April 2, 2025</div>
+            </div>
+            
+            <div class="review">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma L.">
+                        <div class="reviewer-details">
+                            <h4>Emma Liu</h4>
+                            <span>UX Designer</span>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p>"As a designer, this saves me hours of work. The AI understands prompts perfectly and the new style filters help me quickly find the aesthetic I'm looking for. The high resolution exports are print-ready and require minimal touch-ups."</p>
+                <div class="review-date">March 28, 2025</div>
+            </div>
+            
+            <div class="review">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David R.">
+                        <div class="reviewer-details">
+                            <h4>David Rodriguez</h4>
+                            <span>Content Creator</span>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p>"The speed and quality are unmatched. I can generate an entire series of themed images for my blog posts in minutes. The recent update with the neon style option was exactly what I needed for my tech content."</p>
+                <div class="review-date">April 8, 2025</div>
+            </div>
+            
+            <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="review-pagination">
+            <span class="pagination-dot active"></span>
+            <span class="pagination-dot"></span>
+            <span class="pagination-dot"></span>
+            <span class="pagination-dot"></span>
+        </div>
+    </section>
+
+    <!-- Subscription Section -->
+    <section class="subscription-section">
+        <div class="subscription-content">
+            <h2>Upgrade to Pro</h2>
+            <p>Get access to advanced features, higher resolution outputs, and unlimited generations</p>
+            <div class="pricing-cards">
+                <div class="pricing-card basic">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="price">Free</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 10 images per day</li>
+                        <li><i class="fas fa-check"></i> Standard resolution</li>
+                        <li><i class="fas fa-check"></i> 3 style options</li>
+                        <li><i class="fas fa-times"></i> Image editing</li>
+                        <li><i class="fas fa-times"></i> Collections</li>
+                    </ul>
+                    <button class="pricing-btn">Current Plan</button>
+                </div>
+                <div class="pricing-card pro featured">
+                    <div class="pricing-header">
+                        <div class="popular-tag">Most Popular</div>
+                        <h3>Pro</h3>
+                        <div class="price">$12.99<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited images</li>
+                        <li><i class="fas fa-check"></i> HD resolution</li>
+                        <li><i class="fas fa-check"></i> All style options</li>
+                        <li><i class="fas fa-check"></i> Advanced editing</li>
+                        <li><i class="fas fa-check"></i> Custom collections</li>
+                    </ul>
+                    <button class="pricing-btn">Upgrade Now</button>
+                </div>
+                <div class="pricing-card enterprise">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">$49.99<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Pro</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                        <li><i class="fas fa-check"></i> Custom models</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Team collaboration</li>
+                    </ul>
+                    <button class="pricing-btn">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-paint-brush"></i>
+                ImageGenX AI
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 ImageGenX AI | All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Sign In</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form class="login-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password">
+                    </div>
+                    <div class="form-footer">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </form>
+                <div class="social-login">
+                    <p>Or sign in with</p>
+                    <div class="social-buttons">
+                        <button class="social-btn google"><i class="fab fa-google"></i> Google</button>
+                        <button class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p>Don't have an account? <a href="#" class="switch-modal" data-target="signupModal">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Preview Modal -->
+    <div class="modal-overlay" id="imagePreviewModal">
+        <div class="modal image-preview-modal">
+            <div class="modal-header">
+                <h3>Image Preview</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-container">
+                    <img src="" alt="Preview" id="previewImage">
+                </div>
+                <div class="image-info">
+                    <div class="prompt-info">
+                        <h4>Prompt</h4>
+                        <p id="previewPrompt"></p>
+                    </div>
+                    <div class="image-actions">
+                        <button class="action-btn download-btn"><i class="fas fa-download"></i> Download</button>
+                        <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="action-btn share-btn"><i class="fas fa-share-alt"></i> Share</button>
+                        <button class="action-btn save-btn"><i class="fas fa-folder-plus"></i> Save to Collection</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Generating amazing images...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imagesloaded/5.0.0/imagesloaded.pkgd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
