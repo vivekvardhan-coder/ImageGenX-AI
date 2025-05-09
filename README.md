@@ -8,7 +8,7 @@
 **ImageGenX-AI** is a powerful and sleek AI image generator that converts your **text prompts** into stunning, high-quality visuals using the **Stable Diffusion XL** model via Hugging Face’s API. Perfect for creatives, developers, and visual thinkers. 🎨
 
 ---
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F74C00&width=435&lines=✨+Turn+text+into+art+instantly+with+AI!)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F74C00&width=435&lines=✨+Turn+text+into+art+instantly+with+ImageGenX+AI!)](https://git.io/typing-svg)
 
 ## 🌟 Features
 
