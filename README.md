@@ -33,15 +33,7 @@
 - HTML, CSS, JavaScript  
 - Hugging Face Inference API  
 - Stable Diffusion XL  
-- Optional: Axios or Fetch API for backend calls
 
----
-
-## 📹 Demo (Optional)
-
-[🔗 Add a link here to demo video or live version]
-
----
 
 ## 📜 License
 
