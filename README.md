@@ -34,7 +34,12 @@
 
 - HTML, CSS, JavaScript  
 - Hugging Face Inference API  
-- Stable Diffusion XL  
+- Stable Diffusion XL
+
+## 🔗 Live Preview
+
+👉 [**View site**](https://imagegenx-ai.vercel.app/)  
+
 
 
 ## 📜 License
